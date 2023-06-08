@@ -1,5 +1,4 @@
-import matplotlib.pyplot as plt
-import numpy as np
+
 # Linear regression
 def mean(x):
     s = 0
