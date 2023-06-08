@@ -53,9 +53,20 @@ c = mnY - m * mnX
 
 x1 = np.linspace(min(X), max(X), 100)
 y1 = m * x1 + c
-plt.plot(x1, y1)  # plotting line
+plt.plot(x1, y1,color="blue" ,label="Without using covariance")  # plotting line
+
+x2 = np.linspace(min(X), max(X), 100)
+y2 = covariance(X,Y)*(x2-mnX)/variance(X)+mnY
+plt.plot(x2, y2,color='r',linestyle="dashed",label="Using covariance Y in term of X")  # Using covariance and variance plotting line
+
+y3 = np.linspace(min(Y), max(Y), 100)
+x3 = covariance(X,Y)*(y3-mnY)/variance(Y)+mnX
+plt.plot(x3, y3,color='green',linestyle="dotted",label="Using covariance X in term of Y")  # Using covariance and variance plotting line
 
 plt.scatter(X, Y, color="r")  # plotting dataset
+
+plt.scatter(mnX, mnY, color="black",marker="s",label="mean x , mean y")  # plotting dataset
 plt.title("LINE THAT BEST FITS [Linear Regression]")
+plt.legend()
 plt.show()
 
